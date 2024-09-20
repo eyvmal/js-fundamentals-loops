@@ -43,8 +43,11 @@ for (let i = 0; i < nums.length; i++) {
 // 6. find the median of the numbers in the array
 let median = 0
 nums.sort((a, b) => a - b)
-const middle = Math.floor(nums.length / 2)
-median = nums[middle - 1]
+const middleIndex = Math.floor(nums.length / 2)
+median =
+  nums.length % 2 === 1
+    ? nums[middleIndex]
+    : (nums[middleIndex - 1] + nums[middleIndex]) / 2
 
 module.exports = {
   hasTen,
